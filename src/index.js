@@ -1,35 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import TodoList from './components/todo-list';
+import AppHeader from './components/app-header';
+import SearchPanel from './components/search-panel';
 
-const TodoList = () => {
-  const items = ['Learn React', 'Learn Typescript', 'Build App']
-  return (
-    <ul>
-      <li>{items[0]}</li>
-      <li>{items[1]}</li>
-      <li>{items[2]}</li>
-    </ul>
-  )
-};
-
-const AppHeader = () => {
-  return <h1>My Todo List</h1> }
-
-const SearchPanel = () => {
-  return <input placeholder='search here...' /> }
 
 const App = () => {
-/*   const loginBox = <span>Log in please</span>
-  const welcomBox = <span>Welcom Back</span>
-  const isLogIn = true */
+  const toDoData = [
+    {label: 'Drink Coffee', important: false, id: 1},
+    {label: 'Learn React', important: true, id: 2},
+    {label: 'Learn Typescript', important: false, id: 3}, 
+  ];
   return (
-    <div>
-      {/* <span>{(new Date()).toString()}</span> */}
-      {/* isLogIn? welcomBox: loginBox */}
+    <div> 
       <AppHeader />
       <SearchPanel />
-      <TodoList />
+      <TodoList todos = {toDoData}/>
     </div>
   )
 }
