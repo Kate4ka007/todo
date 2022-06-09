@@ -12,6 +12,7 @@ const App = () => {
     {label: 'Learn React', important: true, id: 2},
     {label: 'Learn Typescript', important: false, id: 3}, 
   ];
+  
   return (
     <div> 
       <AppHeader />
