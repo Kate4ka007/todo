@@ -3,11 +3,7 @@ import React, { Component } from 'react';
 import './todo-list-item.css';
 
 export default class TodoListItem extends Component {
-// consrtuctor() {
-//   this.state = {
-//     done: false
-//   }
-// }
+
   state = {
     done: false,
     important: false
@@ -25,17 +21,18 @@ export default class TodoListItem extends Component {
   }
 
   render() {
-    const { label } = this.props;
+    const { label, onDeleted } = this.props;
     const { done, important } = this.state;
 
     let classNames = "todo-list-item";
+
     if(done) {
       classNames+= ' done';
     }
 
-if(important) {
-  classNames+= ' important'
-}
+    if(important) {
+      classNames+= ' important';
+    }
 
     return (
       <span className={ classNames }>
@@ -48,7 +45,7 @@ if(important) {
           <i className="fa fa-exclamation" />
         </button>
 
-        <button type="button"
+        <button type="button" onClick={ onDeleted }
           className="btn btn-outline-danger btn-sm">
           <i className="fa fa-trash-o" />
         </button>
