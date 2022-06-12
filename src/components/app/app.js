@@ -6,7 +6,7 @@ import TodoList from '../todo-list';
 import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import ItemStatusFilter from '../item-status-filter';
-
+import ItemAddForm from '../item-add-form';
 
 export default class App extends Component {
 
@@ -15,6 +15,8 @@ export default class App extends Component {
       { label: 'Drink Coffee', important: false, id: 1 },
       { label: 'Learn React', important: true, id: 2 },
       { label: 'Learn Typescript', important: false, id: 3 },
+      { label: 'finish RSSchool', important: false, id: 4 },
+      { label: 'find job', important: false, id: 5 },
     ]
   };
 
@@ -33,6 +35,10 @@ export default class App extends Component {
     })     
   }
 
+  addItem = (text) => {
+    console.log('Added', text)
+  }
+
   render() {
     return (
       <div className="todo-app">
@@ -43,9 +49,11 @@ export default class App extends Component {
         </div>
         <TodoList todos={ this.state.toDoData }
           onDeleted={ this.deleteItem } />
+        <ItemAddForm  onItemAdded = { this.addItem}/>
       </div>
+      
     )
-  }r
+  }
 }
 
 

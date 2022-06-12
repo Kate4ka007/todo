@@ -1,0 +1,12 @@
+.add-item-form button {
+  width: 65px;
+  margin: 3px;
+}
+
+.add-item-form {
+  font-size: 1.25rem;  
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 13px;
+}
