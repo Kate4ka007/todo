@@ -16,10 +16,21 @@ export default class App extends Component {
       { label: 'Learn React', important: true, id: 2 },
       { label: 'Learn Typescript', important: false, id: 3 },
     ]
-  }
+  };
 
-  deleteItem = () => {
-    console.log('del')
+  deleteItem = (id) => {
+    this.setState(({ toDoData }) => {
+      const index = toDoData.findIndex((el) => el.id === id)
+
+      const res = [
+        ...toDoData.slice(0, index),
+        ...toDoData.slice(index + 1)
+      ];
+      
+      return {
+        toDoData: res
+      }
+    })     
   }
 
   render() {
@@ -31,10 +42,10 @@ export default class App extends Component {
           <ItemStatusFilter />
         </div>
         <TodoList todos={ this.state.toDoData }
-          onDeleted={ () => { this.deleteItem() } } />
+          onDeleted={ this.deleteItem } />
       </div>
     )
-  }
+  }r
 }
 
 
